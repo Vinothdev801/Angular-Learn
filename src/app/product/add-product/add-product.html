@@ -1,17 +1,26 @@
 <div class="container">
   <form (ngSubmit) = 'addProduct()'>
     <div class="form-input">
-      <label for="name">name</label>
-      <input type="text" name="name" id="name" [(ngModel)]='prodName'>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" [(ngModel)]='prodName' #name="ngModel" required/>
     </div>
+
+    <p *ngIf="name.invalid && name.touched" style="color: red">Name is required</p>
+
     <div class="form-input">
       <label for="image">Image Url: </label>
-      <input type="text" name="image" id="image" [(ngModel)]='prodImage'>
+      <input type="text" name="image" id="image" [(ngModel)]='prodImage' #image="ngModel" required/>
     </div>
+
+    <p *ngIf="image.invalid && image.touched" style="color: red">Image is required.</p>
+
     <div class="form-input">
       <label for="price">Selling Price: </label>
-      <input type="text" name="price" id="price" [(ngModel)]='prodPrice'>
+      <input type="text" name="price" id="price" [(ngModel)]='prodPrice' #price="ngModel"  required/>
     </div>
+
+    <p *ngIf="price.invalid && price.touched" style="color: red">Price is required.</p>
+
     <div class="submit">
       <button type="submit">Submit</button>
     </div>

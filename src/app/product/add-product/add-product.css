@@ -1,0 +1,37 @@
+.container{
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 310px;
+  background: rgba(180, 180, 180, 0.616);
+  padding: 20px;
+  border-radius: 6px  ;
+}
+
+.form-input{
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+button[type=submit]{
+  padding: 5px 15px;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+}

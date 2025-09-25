@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MyService } from '../Di.example';
+import { MyService } from '../services/Di.example';
 
 
 

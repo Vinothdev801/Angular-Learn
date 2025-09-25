@@ -5,44 +5,44 @@
       <div class="form-input">
         <label for="fname">Firstname: </label>
         <input type="text" id="fname" formControlName="firstname">
-        <span id="bt-bar"></span>
+        <!-- <span id="bt-bar"></span> -->
       </div>
       <div class="form-input">
         <label for="lname">Lastname: </label>
         <input type="text" id="fname" formControlName="lastname">
-        <span id="bt-bar"></span>
+        <!-- <span id="bt-bar"></span> -->
       </div>
       <div class="form-input">
         <label for="email">Email: </label>
         <input type="email" id="email" formControlName="email">
-        <span id="bt-bar"></span>
+        <!-- <span id="bt-bar"></span> -->
       </div>
       <div class="form-input">
         <label for="age">Age: </label>
         <input type="number" id="age" placeholder="18 or above" formControlName="age">
-        <span id="bt-bar"></span>
+        <!-- <span id="bt-bar"></span> -->
       </div>
 
       <div class="address" formGroupName="address">
         <div class="form-input">
           <label for="street">Street: </label>
           <input type="text" id="street" formControlName="street">
-          <span id="bt-bar"></span>
+          <!-- <span id="bt-bar"></span> -->
         </div>
         <div class="form-input">
           <label for="city">City: </label>
           <input type="text" id="fname" formControlName="city">
-          <span id="bt-bar"></span>
+          <!-- <span id="bt-bar"></span> -->
         </div>
         <div class="form-input">
           <label for="state">State: </label>
           <input type="text" id="fname" formControlName="state">
-          <span id="bt-bar"></span>
+          <!-- <span id="bt-bar"></span> -->
         </div>
         <div class="form-input">
           <label for="country">Country: </label>
           <input type="text" id="country" formControlName="country">
-          <span id="bt-bar"></span>
+          <!-- <span id="bt-bar"></span> -->
         </div>
       </div>
 
@@ -53,7 +53,7 @@
           <div class="form-input">
             <label for="alias-{{i}}">Alias: {{i}}</label>
             <input type="text" id="alias-{{i}}" [formControlName] = 'i'>
-            <span id="bt-bar"></span>
+            <!-- <span id="bt-bar"></span> -->
              <button type="button" id="remove-btn" (click)="removeAlias($index)">X</button>
           </div>
 

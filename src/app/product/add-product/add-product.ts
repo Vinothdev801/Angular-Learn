@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { ProductService } from './../../services/product-service';
-import { Product } from './../Product.interface';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './add-product.html',
   styleUrl: './add-product.css'
 })
@@ -16,7 +17,9 @@ export class AddProduct {
   prodImage: string = '';
   prodPrice: number = 0;
 
-  constructor(private prodService:ProductService){}
+  constructor(private prodService:ProductService){
+
+  }
 
   addProduct(){
     const product =

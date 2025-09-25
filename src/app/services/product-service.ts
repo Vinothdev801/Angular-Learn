@@ -18,4 +18,9 @@ export class ProductService {
   getProducts(){
     return this.products;
   }
+
+  // get count
+  getCount(){
+    return localStorage.getItem('products')?.length || 0;
+  }
 }

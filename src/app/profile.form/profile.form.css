@@ -15,9 +15,9 @@
 form{
   display: flex;
   flex-direction: column;
-  align-items: left;
-  gap: 10px;
-  padding: 1px 20px;
+  justify-content: center;
+  gap: 20px;
+  padding: 1px 40px;
   color: rgb(231, 240, 231);
 }
 
@@ -56,7 +56,9 @@ input{
 
 }
 .form-input{
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
 }
 /* #bt-bar::after{
   content: '';
@@ -72,7 +74,7 @@ input{
 .address, .aliases {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 #remove-btn{
