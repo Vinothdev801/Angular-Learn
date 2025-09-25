@@ -19,7 +19,7 @@
       </div>
       <div class="form-input">
         <label for="age">Age: </label>
-        <input type="number" id="age" formControlName="age">
+        <input type="number" id="age" placeholder="18 or above" formControlName="age">
         <span id="bt-bar"></span>
       </div>
 
@@ -61,7 +61,8 @@
 
       </div>
       <button type="button" class="add-btn" (click) = 'addAliases() '>+</button>
-      <button type="submit" [disabled]="!profileForm.valid">Update profile</button>
+      <button type="button" class="show-btn" (click)="show()">show profile</button>
+      <button type="submit" [disabled]="!profileForm.valid">Add or Update profile</button>
     </form>
     <p>{{message}}</p>
   </div>

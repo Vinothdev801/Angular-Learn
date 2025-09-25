@@ -13,6 +13,7 @@ import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from "@angula
 export class ProfileForm {
 
   message='';
+  index: number = 0;
   userProfile = {};
   profiles: any[] = []
 
@@ -20,18 +21,14 @@ export class ProfileForm {
     // fetch data from localStorage
     this.profiles = JSON.parse(localStorage.getItem('userProfiles') || '[]');
 
-    if(this.profiles && this.profiles[0]){
-      this.updateProfile(this.profiles[0]);
-    }
-
   }
 
   // form builder
   formBuilder = inject(FormBuilder);
 
   profileForm = this.formBuilder.group({
-    firstname: ['', Validators.required],
-    lastname: ['', Validators.required],
+    firstname: ['', Validators.required, Validators.min(2)],
+    lastname: ['', Validators.required, Validators.min(1)],
     age: ['', [Validators.required, Validators.min(18)]],
     email: ['', [Validators.required, Validators.email]],
     address: this.formBuilder.group({
@@ -59,6 +56,14 @@ export class ProfileForm {
     this.aliases.removeAt(index);
   }
 
+  // show first profile
+  show(){
+    if(this.profiles && this.profiles[this.index]){
+      this.updateProfile(this.profiles[this.index]);
+      this.index++;
+    }
+  }
+
 
   // handle form submit
   onSubmit(){
@@ -80,8 +85,21 @@ export class ProfileForm {
         //aliases: profile.aliases?.length > 0 ? profile.aliases?.forEach()
     }
 
-    this.storeInLocal();
-    this.message='profile updated.'
+    const updateProfile = this.profileForm.value;
+
+
+    const index = this.profiles.findIndex(u => u.email === updateProfile.email)
+    if(index !== -1){
+      this.profiles[index] = { ...this.profiles[index], ...updateProfile }
+
+      localStorage.setItem('userProfiles', JSON.stringify(this.profiles));
+      this.message='profile updated.';
+    }
+    else{
+      this.storeInLocal();
+      this.message='profile added.'
+    }
+
   }
 
   storeInLocal(){

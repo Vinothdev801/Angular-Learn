@@ -16,4 +16,12 @@
   box-shadow: 1px 1px 10px 1px rgb(119, 119, 119);
 }
 
+img{
+  width: 280px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
 

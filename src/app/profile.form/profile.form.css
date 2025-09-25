@@ -86,3 +86,14 @@ input{
   filter: drop-shadow(1px white);
 }
 
+.show-btn{
+  width: 100px;
+  padding: 4px;
+  border-radius: 5px;
+  border: none;
+}
+
+#age::placeholder{
+  color: rgba(238, 238, 238, 0.801);
+}
+
