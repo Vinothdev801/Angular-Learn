@@ -1,0 +1,20 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="heading">
+        <h2>Login Form</h2>
+    </div>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-input">
+            <label for="uname">Email: </label>
+            <input type="text" name="email" id="uname" [(ngModel)]="email" required/>
+        </div>
+
+        <div class="form-input">
+            <label for="pass">Password: </label>
+            <input type="password" name="password" id="pass" [(ngModel)]="password" required/>
+        </div>
+        <p [class.error]="errorMsg">{{errorMsg}}</p>
+        <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

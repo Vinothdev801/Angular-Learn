@@ -1,0 +1,14 @@
+<div class="products">
+  @for (product of products; let i = $index; track $index){
+    <div class="card-container">
+      <div class="card-content">
+        <img [src]="product.imageurl" [alt]="product.name">
+        <div class="description">
+          <p>{{product.name | titlecase}}</p>
+          <p>{{product.price | currency}}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+

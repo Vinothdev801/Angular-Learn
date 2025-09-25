@@ -1,0 +1,46 @@
+<!-- <div class="form-container" >
+    <div>
+        <h2>Reactive form Example</h2><br>
+        <form [formGroup] = "exForm" (ngSubmit) = "onSubmit()">
+            <input type="text" name="name" formControlName ="fname" placeholder="Enter FirstName"> <br><br>
+            <input type="text" name="name" formControlName ="lname" placeholder="Enter LastName"> <br><br>
+            <p>First Name: {{exForm.value.fname}}</p>
+            <p>Last Name: {{exForm.value.lname}}</p>
+
+            <button type="submit" [disabled]="!exForm.valid">submit</button>
+        </form><br>
+
+    </div>
+</div> -->
+
+<div class="form-container">
+  <div>
+    <form [formGroup]="exForm2" (ngSubmit)="onSubmit()">
+      <label for="fname">FirstName: </label>
+      <input type="text" formControlName="firstname" name="fname" id="fname"> <br><br>
+      <label for="lname">LastName: </label>
+      <input type="text" formControlName="lastname" name="lname" id="lname"><br><br>
+
+      <div class="address" formGroupName="address">
+
+        <label for="street">Street: </label>
+        <input type="text" formControlName="street" name="street" id="street" ><br><br>
+
+        <label for="city">City: </label>
+        <input type="text" formControlName="city" name="city" id="city" ><br><br>
+
+        <label for="state">State: </label>
+        <input type="text" formControlName="state" name="state" id="state" ><br><br>
+
+        <label for="zip">Zip: </label>
+        <input type="number" formControlName="zip" name="zip" id="zip" ><br><br>
+
+      </div>
+
+
+      <button type="submit" [disabled]="!exForm2.valid">submit</button>
+    </form>
+
+    <p>Form status: {{exForm2.status}}</p>
+  </div>
+</div>

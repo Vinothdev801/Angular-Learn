@@ -1,0 +1,88 @@
+.add-btn{
+  margin-top: 10px;
+  padding: 5px 15px;
+  width: 50px;
+}
+
+.form-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  padding: 1px 20px;
+  color: rgb(231, 240, 231);
+}
+
+label{
+  text-align: left;
+}
+
+
+.form-content{
+  width: 400px;
+  padding: 10px;
+  background: linear-gradient(120deg, rgb(19, 184, 235), rgb(146, 130, 238), orange);
+  border-radius: 12px;
+}
+
+h2{
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+button[type=submit]{
+color: blue;
+padding: 10px;
+border-radius: 15px;
+outline: none;
+border: none;
+}
+
+input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid rgb(247, 244, 244);
+  background: transparent;
+  outline: none;
+
+}
+.form-input{
+  position: relative;
+}
+/* #bt-bar::after{
+  content: '';
+  position: absolute;
+  display: block;
+  top: 90%;
+  left: 70px;
+  width: 200px;
+  height: 2px;
+  background-color: rgb(230, 241, 232);
+} */
+
+.address, .aliases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#remove-btn{
+  padding: 1px 5px;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
+  border: none;
+  filter: drop-shadow(1px white);
+}
+

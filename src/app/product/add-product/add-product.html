@@ -1,0 +1,19 @@
+<div class="container">
+  <form (ngSubmit) = 'addProduct()'>
+    <div class="form-input">
+      <label for="name">name</label>
+      <input type="text" name="name" id="name" [(ngModel)]='prodName'>
+    </div>
+    <div class="form-input">
+      <label for="image">Image Url: </label>
+      <input type="text" name="image" id="image" [(ngModel)]='prodImage'>
+    </div>
+    <div class="form-input">
+      <label for="price">Selling Price: </label>
+      <input type="text" name="price" id="price" [(ngModel)]='prodPrice'>
+    </div>
+    <div class="submit">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+a{
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(252, 246, 246);
+}
+
+nav ul li{
+  display: flex;
+}
+
+nav ul{
+  display: flex;
+  gap: 20px;
+}
+
+nav{
+  background-color: rgb(6, 172, 172);
+  padding: 20px;
+}

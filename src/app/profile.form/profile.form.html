@@ -1,0 +1,69 @@
+<div class="form-container">
+  <div class="form-content">
+    <h2>Profile</h2>
+    <form [formGroup]="profileForm" (ngSubmit) = "onSubmit()">
+      <div class="form-input">
+        <label for="fname">Firstname: </label>
+        <input type="text" id="fname" formControlName="firstname">
+        <span id="bt-bar"></span>
+      </div>
+      <div class="form-input">
+        <label for="lname">Lastname: </label>
+        <input type="text" id="fname" formControlName="lastname">
+        <span id="bt-bar"></span>
+      </div>
+      <div class="form-input">
+        <label for="email">Email: </label>
+        <input type="email" id="email" formControlName="email">
+        <span id="bt-bar"></span>
+      </div>
+      <div class="form-input">
+        <label for="age">Age: </label>
+        <input type="number" id="age" formControlName="age">
+        <span id="bt-bar"></span>
+      </div>
+
+      <div class="address" formGroupName="address">
+        <div class="form-input">
+          <label for="street">Street: </label>
+          <input type="text" id="street" formControlName="street">
+          <span id="bt-bar"></span>
+        </div>
+        <div class="form-input">
+          <label for="city">City: </label>
+          <input type="text" id="fname" formControlName="city">
+          <span id="bt-bar"></span>
+        </div>
+        <div class="form-input">
+          <label for="state">State: </label>
+          <input type="text" id="fname" formControlName="state">
+          <span id="bt-bar"></span>
+        </div>
+        <div class="form-input">
+          <label for="country">Country: </label>
+          <input type="text" id="country" formControlName="country">
+          <span id="bt-bar"></span>
+        </div>
+      </div>
+
+      <div class="aliases" formArrayName="aliases">
+        <h2>Aliases</h2>
+
+        @for (alias of aliases.controls; track $index; let i = $index) {
+          <div class="form-input">
+            <label for="alias-{{i}}">Alias: {{i}}</label>
+            <input type="text" id="alias-{{i}}" [formControlName] = 'i'>
+            <span id="bt-bar"></span>
+             <button type="button" id="remove-btn" (click)="removeAlias($index)">X</button>
+          </div>
+
+        }
+
+      </div>
+      <button type="button" class="add-btn" (click) = 'addAliases() '>+</button>
+      <button type="submit" [disabled]="!profileForm.valid">Update profile</button>
+    </form>
+    <p>{{message}}</p>
+  </div>
+
+</div>
