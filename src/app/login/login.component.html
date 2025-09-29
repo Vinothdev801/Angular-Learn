@@ -1,0 +1,23 @@
+<!-- App navbar -->
+<app-navbar></app-navbar>
+
+<div class="login-container">
+  <div class="login-card">
+    <div class="heading">
+        <h2>Login Form</h2>
+    </div>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-input">
+            <label class="col-sm-4 col-form-label" for="uname">Email: </label>
+            <input class="form-control"  type="text" name="email" id="uname" [(ngModel)]="email" required/>
+        </div>
+
+        <div class="form-input">
+            <label class="col-sm-4 col-form-label" for="pass">Password: </label>
+            <input class="form-control"  type="password" name="password" id="pass" [(ngModel)]="password" required/>
+        </div>
+        <p [class.error]="errorMsg">{{errorMsg}}</p>
+        <button type="submit" class="btn btn-dark mb-3">Login</button>
+    </form>
+  </div>
+</div>

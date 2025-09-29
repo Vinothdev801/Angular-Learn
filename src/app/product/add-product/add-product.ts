@@ -17,9 +17,7 @@ export class AddProduct {
   prodImage: string = '';
   prodPrice: number = 0;
 
-  constructor(private prodService:ProductService){
-
-  }
+  constructor(private prodService:ProductService){}
 
   addProduct(){
     const product =

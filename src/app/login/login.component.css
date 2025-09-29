@@ -4,7 +4,7 @@
 
 .login-container{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     color: rgb(17, 115, 206);
 }
 
@@ -20,4 +20,11 @@ form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 200px;
+}
+
+.form-input{
+  display: flex;
+  gap: 10px;
+  width: 280px;
 }

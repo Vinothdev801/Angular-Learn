@@ -1,3 +1,4 @@
+import { UserService } from './../services/UserService';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -9,5 +10,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  userName: string = '';
 
+  constructor(private userService: UserService){
+    this.userService.userName$.subscribe( name => {
+      this.userName = name;
+    })
+  }
 }

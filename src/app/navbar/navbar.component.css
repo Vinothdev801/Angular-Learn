@@ -16,4 +16,12 @@ nav ul{
 nav{
   background-color: rgb(6, 172, 172);
   padding: 20px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+p{
+  color: white;
+  font-size: 18px;
 }

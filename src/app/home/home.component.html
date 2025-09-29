@@ -1,10 +1,25 @@
-<p>home.component works!</p>
 
-<!-- <input type="radio" (click)="color='green'"  name="colors"> green  
+
+<!-- <input type="radio" (click)="color='green'"  name="colors"> green
 <input type="radio" (click)="color='yellow'" name="colors">yellow
 <input type="radio" (click)="color='violet'" name="colors">violet
 <input type="radio" (click)="color='blue'"  name="colors">blue -->
-<br>
-<button colorchange (click)="show()"> click me {{istrue}}</button>
+
+<app-navbar/>
+<button class="btn btn-lg m-5 link-info" colorchange (click)="show()"> click me </button>
+<div class="grid text-center">
+  <div class="row g-2 m-4">
+    <div class="col-3"  *ngFor="let d of data">
+      <div class="p-1">
+        <ul class="list-group">
+          <li class="list-group-item bg-black text-white">Id: {{d.id}}</li>
+          <li class="list-group-item">User-Id: {{d.userId}}</li>
+          <li class="list-group-item">completed: {{d.completed}}</li>
+          <li class="list-group-item">Title: {{d.title}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 

@@ -27,8 +27,8 @@ export class ProfileForm {
   formBuilder = inject(FormBuilder);
 
   profileForm = this.formBuilder.group({
-    firstname: ['', Validators.required, Validators.min(2)],
-    lastname: ['', Validators.required, Validators.min(1)],
+    firstname: ['', Validators.required],
+    lastname: ['', Validators.required],
     age: ['', [Validators.required, Validators.min(18)]],
     email: ['', [Validators.required, Validators.email]],
     address: this.formBuilder.group({
