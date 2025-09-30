@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild, viewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewChild} from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { User } from '../../User';
 import { UserService } from '../services/UserService';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -25,19 +25,19 @@ export class LoginComponent{
   errorMsg = '';
 
   constructor(private router: Router, private userService: UserService){
-    const user=[
-      {
-        name: 'Rabi',
-        email: 'test@gmail.com',
-        password: '1234',
-      },
-      {
-        name: 'Sang',
-        email: 'Sangking@gmail.com',
-        password: 'Sang@123',
-      }
-    ]
-    localStorage.setItem('users', JSON.stringify(user))
+    // const user=[
+    //   {
+    //     name: 'Rabi',
+    //     email: 'test@gmail.com',
+    //     password: '1234',
+    //   },
+    //   {
+    //     name: 'Sang',
+    //     email: 'Sangking@gmail.com',
+    //     password: 'Sang@123',
+    //   }
+    // ]
+    // localStorage.setItem('users', JSON.stringify(user))
   }
 
   ngAfterViewInit(){

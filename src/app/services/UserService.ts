@@ -18,6 +18,6 @@ export class UserService{
 
  reset(){
   this.userNameSubject.next('');
-  this.router.navigate(['home'])
+  this.router.navigate(['/login'])
  }
 }

@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
   selector: 'app-profile.form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './profile.form.html',
   styleUrl: './profile.form.css'
 })

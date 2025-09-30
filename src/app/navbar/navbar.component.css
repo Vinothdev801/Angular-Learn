@@ -2,6 +2,7 @@ a{
   text-decoration: none;
   font-size: 18px;
   color: rgb(252, 246, 246);
+  outline: none;
 }
 
 nav ul li{
@@ -10,7 +11,7 @@ nav ul li{
 
 nav ul{
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 nav{
@@ -22,6 +23,23 @@ nav{
 }
 
 p{
+  color: white;
+  font-size: 18px;
+}
+
+.logout-btn{
+  padding: 5px 20px;
+  outline: none;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.login-info{
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
   color: white;
   font-size: 18px;
 }

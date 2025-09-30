@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, CanActivateFn, CanDeactivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { UserService } from './services/UserService';
 import { inject } from '@angular/core';
-import { Form } from './form/form';
+import { Form } from './regForm/form';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
@@ -18,7 +18,6 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
 
   else{
-    console.log('entered auth guard else')
     router.navigate(['/login'])
     return false;
   }

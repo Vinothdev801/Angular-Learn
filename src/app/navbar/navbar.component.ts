@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { UserService } from './../services/UserService';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -22,5 +23,6 @@ export class NavbarComponent {
 
   logout(){
     this.userService.reset();
+    
   }
 }

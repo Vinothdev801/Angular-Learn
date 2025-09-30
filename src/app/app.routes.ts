@@ -10,19 +10,19 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddProduct } from './product/add-product/add-product';
 import { Counter } from './counter/counter';
 import { authGuard, unsavedChangesGuard } from './auth-guard';
-import { Form } from './form/form';
+import { Form } from './regForm/form';
 
 export const routes: Routes = [
     {path:'', component: LoginComponent},
     {path:'home', component: HomeComponent, canActivate: [authGuard]},
-    {path:'contact', component: ContactComponent},
-    {path:'about', component: AboutComponent},
-    {path:'product', component: ProductComponent},
+    {path:'contact', component: ContactComponent, canActivate: [authGuard]},
+    {path:'about', component: AboutComponent, canActivate: [authGuard]},
+    {path:'product', component: ProductComponent, canActivate: [authGuard]},
     {path: 'form', component: Form, canDeactivate: [unsavedChangesGuard]},
     {path:'form-eample', component: FormExample},
-    {path:'profile', component: ProfileForm},
-    {path: 'addProduct', component: AddProduct},
+    {path:'profile', component: ProfileForm, canActivate: [authGuard]},
+    {path: 'addProduct', component: AddProduct, canActivate: [authGuard]},
     {path: 'login', component: LoginComponent},
-    {path: 'counter', component: Counter},
+    // {path: 'counter', component: Counter},
     {path: '**', component: ErrorPageComponent}
 ];
