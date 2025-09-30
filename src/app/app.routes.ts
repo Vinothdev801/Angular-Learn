@@ -9,10 +9,11 @@ import { ProfileForm } from './profile.form/profile.form';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddProduct } from './product/add-product/add-product';
 import { Counter } from './counter/counter';
+import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
     {path:'', component: LoginComponent},
-    {path:'home', component: HomeComponent},
+    {path:'home', component: HomeComponent, canActivate: [authGuard]},
     {path:'contact', component: ContactComponent},
     {path:'about', component: AboutComponent},
     {path:'product', component: ProductComponent},

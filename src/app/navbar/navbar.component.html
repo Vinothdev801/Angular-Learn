@@ -7,5 +7,9 @@
         <li></li>
     </ul>
 
-    <p>username: {{userName}}</p>
+    <div *ngIf="userName">
+      <p>username: {{userName}}</p>
+      <button type="button" (click)="logout()">LogOut</button>
+    </div>
+
 </nav>

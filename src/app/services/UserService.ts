@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -6,10 +7,17 @@ import { BehaviorSubject} from "rxjs";
 })
 export class UserService{
 
+ constructor(private router: Router){}
+
  private userNameSubject = new BehaviorSubject<string | any>('');
  userName$ = this.userNameSubject.asObservable();
 
  updateUserName(name: string | any){
   this.userNameSubject.next(name);
+ }
+
+ reset(){
+  this.userNameSubject.next('');
+  this.router.navigate(['home'])
  }
 }
