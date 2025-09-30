@@ -9,7 +9,8 @@ import { ProfileForm } from './profile.form/profile.form';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddProduct } from './product/add-product/add-product';
 import { Counter } from './counter/counter';
-import { authGuard } from './auth-guard';
+import { authGuard, unsavedChangesGuard } from './auth-guard';
+import { Form } from './form/form';
 
 export const routes: Routes = [
     {path:'', component: LoginComponent},
@@ -17,7 +18,8 @@ export const routes: Routes = [
     {path:'contact', component: ContactComponent},
     {path:'about', component: AboutComponent},
     {path:'product', component: ProductComponent},
-    {path:'form', component: FormExample},
+    {path: 'form', component: Form, canDeactivate: [unsavedChangesGuard]},
+    {path:'form-eample', component: FormExample},
     {path:'profile', component: ProfileForm},
     {path: 'addProduct', component: AddProduct},
     {path: 'login', component: LoginComponent},

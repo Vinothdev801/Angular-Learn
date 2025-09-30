@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="form-container">
+  <div class="content">
+    <h2>Register Form</h2><br>
+
+    <!-- Bootstrap form template -->
+    <form class="row g-3" #regForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" [(ngModel)]="email" name="email" class="form-control" id="inputEmail4" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="inputPassword4" required>
+      </div>
+
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" [(ngModel)]="address" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" [(ngModel)]="city" name="city" class="form-control" id="inputCity">
+      </div>
+
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" [(ngModel)]="state" name="state" class="form-select">
+          <option selected>Choose...</option>
+          <option value="india">India</option>
+          <option value="russia">Russia</option>
+          <option value="china">China</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" [(ngModel)]="zip" name="zip" class="form-control" id="inputZip">
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" [disabled]="!formRef.valid" class="btn btn-primary">Register</button>
+      </div>
+
+    </form>
+  </div>
+</div>

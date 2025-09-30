@@ -1,6 +1,7 @@
-import { CanActivateFn, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, CanDeactivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { UserService } from './services/UserService';
 import { inject } from '@angular/core';
+import { Form } from './form/form';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
@@ -23,3 +24,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
 
 };
+
+ export const unsavedChangesGuard: CanDeactivateFn<Form> = (component: Form, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState: RouterStateSnapshot) => {
+   return component.checkChanges() ? component.notify() : true;
+ }
