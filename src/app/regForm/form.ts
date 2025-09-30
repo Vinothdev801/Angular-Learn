@@ -27,8 +27,10 @@ export class Form {
   ngAfterViewInit(){
     setTimeout(() => {
       const dataLength = localStorage.getItem('formData')?.length ?? 0;
+      const formData = JSON.parse(localStorage.getItem('formData') || '');
+      const savedTime = formData[0]?.savedTime ?? '';
       if(dataLength > 0){
-        if(confirm(`Do want to restore your saved changes ${this.savedTime}`)){
+        if(confirm(`Want to restore your old data on: [ ${savedTime} ]`)){
           this.updateForm();
         }
       }
@@ -41,11 +43,11 @@ export class Form {
   }
 
   checkChanges(): boolean{
-    console.log(this.formRef);
-    if(this.formRef?.dirty && this.formRef?.touched && this.checkInputs()){
 
+    if(this.formRef?.dirty && this.formRef?.touched && this.checkInputs()){
       return true;
     }
+
     else{
       return false;
     }
@@ -55,7 +57,7 @@ export class Form {
   notify(){
     if(confirm('click ok to save the form')){
       this.storeFormData('formData');
-      this.updateForm();
+      //this.updateForm();
       return true;
     }
     else{
@@ -76,6 +78,9 @@ export class Form {
   }
 
   storeFormData(storageName: string){
+    const date = new Date();
+    this.savedTime = date.toDateString();
+
     const formData = [{
       name: this.name,
       email: this.email,
@@ -85,14 +90,14 @@ export class Form {
       state: this.state,
       country: this.country,
       zip: this.zip,
-      savedTime: this.savedTime
+      savedTime: this.savedTime,
     }]
     localStorage.setItem(`${storageName}`, JSON.stringify(formData));
   }
 
   updateForm(){
     const formData = JSON.parse(localStorage.getItem('formData') || '[]');
-    console.log(formData)
+
     if(formData && typeof formData === 'object'){
       this.name = formData[0]?.name ?? '';
       this.email = formData[0]?.email ?? '';
@@ -105,9 +110,8 @@ export class Form {
   }
 
   onSubmit(){
-    const date = new Date();
+
     if(this.formRef.valid){
-      this.savedTime = date.getUTCDate.toString();
       this.storeFormData('users');
       alert('Form Submitted successfully.');
       this.resetForm();
