@@ -14,11 +14,18 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   userName: string = '';
+  showMenu: boolean = false;
 
   constructor(private userService: UserService){
     this.userService.userName$.subscribe( name => {
       this.userName = name;
     })
+  }
+
+  toggleMenu(){
+    console.log("entered toggle");
+    
+    this.showMenu = !this.showMenu;
   }
 
   logout(){

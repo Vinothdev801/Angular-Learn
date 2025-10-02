@@ -1,9 +1,12 @@
 import { ActivatedRouteSnapshot, CanActivateFn, CanDeactivateFn, Router, RouterStateSnapshot } from '@angular/router';
-import { UserService } from './services/UserService';
-import { inject } from '@angular/core';
-import { Form } from './regForm/form';
 
-export const authGuard: CanActivateFn = (route, state) => {
+import { inject } from '@angular/core';
+import { UserService } from '../services/UserService';
+import { Form } from '../regForm/form';
+
+
+
+export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const userService = inject(UserService);
 

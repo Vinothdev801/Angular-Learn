@@ -1,5 +1,11 @@
 export interface Product{
-  name: string,
-  imageurl: string,
+  id: number,
+  title: string,
+  image: string,
   price: string,
+  category: string,
+  rating: {
+    rate: number,
+    count: number,
+  },
 }

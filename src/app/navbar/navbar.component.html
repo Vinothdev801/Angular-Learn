@@ -1,20 +1,22 @@
-<nav>
-    <ul class="nav-underline">
-        <li><a class="nav-link" routerLink='/home' routerLinkActive="active">Home</a></li>
-        <li><a class="nav-link" routerLink="/product" routerLinkActive="active">Products</a></li>
-        <li><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        <li><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
-    </ul>
+<nav >
+  <button class="hamburger" (click)="toggleMenu()"><i class="bi bi-list"></i></button>
 
-    <div class="login-info">
-      @if(userName){
-        <a routerLink="/profile"><i class="bi bi-person-fill"></i>{{userName}}</a>
-        <button type="button" class="logout-btn" (click)="logout()" title="logout"><i class="bi bi-box-arrow-right"></i></button>
-      }
-      @else {
-        <a routerLink="/login">Login</a>
-      }
+  <ul class="nav-underline" [class.open]="showMenu">
+      <li><a class="nav-link" routerLink='/home' routerLinkActive="active">Home</a></li>
+      <li><a class="nav-link" routerLink="/product" routerLinkActive="active">Products</a></li>
+      <li><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
+      <li><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
+  </ul>
 
-    </div>
+  <div class="login-info">
+    @if(userName){
+      <a routerLink="/profile" title="Profile"><i class="bi bi-person-fill"></i>{{userName}}</a>
+      <button type="button" class="logout-btn" (click)="logout()" title="logout"><i class="bi bi-box-arrow-right"></i></button>
+    }
+    @else {
+      <a routerLink="/login">Login</a>
+    }
+
+  </div>
 
 </nav>

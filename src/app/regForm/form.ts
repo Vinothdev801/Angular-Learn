@@ -1,13 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from "@angular/forms";
 import { RouterLink } from '@angular/router';
 import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
 
-
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule],
   templateUrl: './form.html',
   styleUrl: './form.css'
 })
@@ -22,18 +22,22 @@ export class Form {
   zip: string= '';
   savedTime: string = '';
 
+  // Sign Up form Reference
   @ViewChild('regForm') formRef!: NgForm;
 
   ngAfterViewInit(){
     setTimeout(() => {
-      const dataLength = localStorage.getItem('formData')?.length ?? 0;
-      const formData = JSON.parse(localStorage.getItem('formData') || '');
-      const savedTime = formData[0]?.savedTime ?? '';
-      if(dataLength > 0){
-        if(confirm(`Want to restore your old data on: [ ${savedTime} ]`)){
-          this.updateForm();
+      try {
+        const dataLength = localStorage.getItem('formData')?.length ?? 0;
+        const formData = JSON.parse(localStorage.getItem('formData') || '');
+        const savedTime = formData[0]?.savedTime ?? '';
+        if(dataLength > 0){
+          if(confirm(`Want to restore your old data on: [ ${savedTime} ]`)){
+            this.updateForm();
+          }
         }
       }
+      catch(e){}
     }, 1000);
 
   }

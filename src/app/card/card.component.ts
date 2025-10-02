@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProductService } from '../services/product-service';
+
+
+import { ProductApi } from '../services/productApiService';
 import { Product } from '../product/Product.interface';
 
 @Component({
@@ -8,13 +10,11 @@ import { Product } from '../product/Product.interface';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  styleUrl: './card.component.css',
 })
 export class CardComponent {
-  products: Product[] = []
-  constructor(productService: ProductService){
-    console.log(productService.getProducts());
-
-    this.products = productService.getProducts()
+  products: Product[] = [];
+  constructor(productApi: ProductApi) {
+    productApi.getAllProducts().subscribe((products) => (this.products = products));
   }
 }

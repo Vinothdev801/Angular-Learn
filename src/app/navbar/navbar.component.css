@@ -5,13 +5,14 @@ a{
   outline: none;
 }
 
-nav ul li{
+/* nav ul li{
   display: flex;
-}
+} */
 
 nav ul{
   display: flex;
   gap: 40px;
+  list-style-type: none;
 }
 
 nav{
@@ -42,4 +43,31 @@ p{
   align-items: center;
   color: white;
   font-size: 18px;
+}
+
+.hamburger{
+  display: none;
+  width: 50px;
+  height: 50px;
+
+}
+
+@media (max-width: 768px){
+  .hamburger{
+    display: block;
+  }
+
+  nav ul{
+    display: none;
+  }
+
+  .nav-underline.open{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .login-info{
+    align-items: start;
+  }
 }

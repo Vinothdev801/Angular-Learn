@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Todo } from "../type/Todo";
 
 @Injectable({providedIn: 'root'})
 export class Api{
@@ -12,6 +13,6 @@ export class Api{
   }
 
   getAllData(){
-    return this.http.get('https://jsonplaceholder.typicode.com/todos/');
+    return this.http.get<Array<Todo>>('https://jsonplaceholder.typicode.com/todos/');
   }
 }

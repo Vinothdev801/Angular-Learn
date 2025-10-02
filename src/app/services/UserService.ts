@@ -9,10 +9,10 @@ export class UserService{
 
  constructor(private router: Router){}
 
- private userNameSubject = new BehaviorSubject<string | any>('');
+ private userNameSubject = new BehaviorSubject<string>('');
  userName$ = this.userNameSubject.asObservable();
 
- updateUserName(name: string | any){
+ updateUserName(name: string){
   this.userNameSubject.next(name);
  }
 

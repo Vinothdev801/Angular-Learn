@@ -1,4 +1,3 @@
-import { Product } from '../product/Product.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({

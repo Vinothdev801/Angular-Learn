@@ -1,27 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavbarComponent } from '../navbar/navbar.component';
-
 
 @Component({
   selector: 'app-profile.form',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './profile.form.html',
-  styleUrl: './profile.form.css'
+  styleUrl: './profile.form.css',
 })
 export class ProfileForm {
-
-  message='';
+  message = '';
   index: number = 0;
   userProfile = {};
-  profiles: any[] = []
+  profiles: any[] = [];
 
-  constructor(){
+  constructor() {
     // fetch data from localStorage
     this.profiles = JSON.parse(localStorage.getItem('userProfiles') || '[]');
-
   }
 
   // form builder
@@ -48,67 +45,61 @@ export class ProfileForm {
   }
 
   // add aliases in form
-  addAliases(){
+  addAliases() {
     this.aliases.push(this.formBuilder.control(''));
   }
 
   // remove aliases by index
-  removeAlias(index: number){
+  removeAlias(index: number) {
     this.aliases.removeAt(index);
   }
 
   // show first profile
-  show(){
-    if(this.profiles && this.profiles[this.index]){
+  show() {
+    if (this.profiles && this.profiles[this.index]) {
       this.updateProfile(this.profiles[this.index]);
       this.index++;
     }
   }
 
-
   // handle form submit
-  onSubmit(){
-
+  onSubmit() {
     // form data
     const profile = this.profileForm.value;
     this.userProfile = {
-        fname: profile.firstname,
-        lname: profile.lastname,
-        age: profile.age,
-        email: profile.email,
-        address: {
-          street: profile.address?.street,
-          city: profile.address?.city,
-          state: profile.address?.state,
-          country: profile.address?.country,
-
-        },
-        //aliases: profile.aliases?.length > 0 ? profile.aliases?.forEach()
-    }
+      fname: profile.firstname,
+      lname: profile.lastname,
+      age: profile.age,
+      email: profile.email,
+      address: {
+        street: profile.address?.street,
+        city: profile.address?.city,
+        state: profile.address?.state,
+        country: profile.address?.country,
+      },
+      //aliases: profile.aliases?.length > 0 ? profile.aliases?.forEach()
+    };
 
     const updateProfile = this.profileForm.value;
 
-
-    const index = this.profiles.findIndex(u => u.email === updateProfile.email)
-    if(index !== -1){
-      this.profiles[index] = { ...this.profiles[index], ...updateProfile }
+    const index = this.profiles.findIndex((u) => u.email === updateProfile.email);
+    if (index !== -1) {
+      this.profiles[index] = { ...this.profiles[index], ...updateProfile };
 
       localStorage.setItem('userProfiles', JSON.stringify(this.profiles));
-      this.message='profile updated.';
-    }
-    else{
+      this.message = 'profile updated.';
+    } else {
       this.storeInLocal();
-      this.message='profile added.'
+      this.message = 'profile added.';
     }
-
   }
 
-  storeInLocal(){
+  storeInLocal() {
     this.profiles.push(this.userProfile);
     localStorage.setItem('userProfiles', JSON.stringify(this.profiles));
   }
 
-  updateProfile(profile: any): void{
+  updateProfile(profile: any): void {
     this.profileForm.patchValue({
       firstname: profile.fname,
       lastname: profile.lname,
@@ -119,9 +110,7 @@ export class ProfileForm {
         city: profile.address?.city,
         state: profile.address?.state,
         country: profile.address?.country,
-      }
-
+      },
     });
-
   }
 }

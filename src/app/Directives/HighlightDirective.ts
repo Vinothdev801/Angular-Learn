@@ -7,13 +7,13 @@ export class HighlightDirective{
     @Input() color = '';
 
 
-    @HostBinding('style.backgroundColor') bg = 'black';
-    @HostBinding('style.color') tc = 'white'
+    @HostBinding('style.background') bg = 'transparent';
+    @HostBinding('style.color') tc = 'green'
 
     @HostListener('mouseenter') onMouseEnter() {
      this.bg = this.color
     }
-    @HostListener('mouseenter') onMouseLeave() {
-      this.bg = 'black'
+    @HostListener('mouseleave') onMouseLeave() {
+      this.bg = 'transparent'
     }
 }

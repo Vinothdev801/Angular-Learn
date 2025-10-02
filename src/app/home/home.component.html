@@ -1,28 +1,33 @@
-
-
-<!-- <input type="radio" (click)="color='green'"  name="colors"> green
-<input type="radio" (click)="color='yellow'" name="colors">yellow
-<input type="radio" (click)="color='violet'" name="colors">violet
-<input type="radio" (click)="color='blue'"  name="colors">blue -->
-
 <app-navbar/>
+
 <div class="heading">
   <h2 class="text-center m-lg-4">Welcome to site</h2>
 </div>
-<p>click here to show Todo list:</p>
-<button class="btn btn-lg link-info" colorchange (click)="show()"> click me </button>
+<span class="p-1">click the button to show Todo List:-</span>
+<button class="btn btn-lg link-info btn-dark" (click)="show()"> click me </button>
+@if(!todoItems().length){
+  <p>Loading....</p>
+}
+@else {
+  <form>
+    <label for="search">Filter Todos</label>
+    <input type="text" name="search" [(ngModel)]="searchTodo" id="search">
+  </form>
+}
 <div class="grid text-center">
   <div class="row g-2 m-4">
-    <div class="col-3"  *ngFor="let d of data">
-      <div class="p-1">
-        <ul class="list-group">
-          <li class="list-group-item bg-black text-white">Id: {{d.id}}</li>
-          <li class="list-group-item">User-Id: {{d.userId}}</li>
-          <li class="list-group-item">completed: {{d.completed}}</li>
-          <li class="list-group-item">Title: {{d.title}}</li>
+    @for (d of todoItems() | filterTodos : searchTodo(); track d.id) {
+    <div class="col-3">
+      <div class="p-2">
+        <ul class="list-group" TodoCompeletion [isCompleted]="d.completed">
+          <li class="list-group-item bg-black text-white"><input type="checkbox" name="todo" [checked]="d.completed" (change)="todoClicked(d)" id="todo">Id: {{d.id}}</li>
+          <li class="list-group-item" >User-Id: {{d.userId}}</li>
+          <li class="list-group-item">Status: {{d.completed ? 'completed' : 'Not completed'}}</li>
+          <li class="list-group-item" colorchange [color]="'yellow'">Title: {{d.title}}</li>
         </ul>
       </div>
     </div>
+    }
   </div>
 </div>
 
