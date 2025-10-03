@@ -1,4 +1,5 @@
-export interface Product{
+// products from fake api
+export interface ApiProduct{
   id: number,
   title: string,
   image: string,
@@ -8,4 +9,11 @@ export interface Product{
     rate: number,
     count: number,
   },
+}
+
+// products from local storage.
+export type Product = {
+  title: string,
+  image: string,
+  price: number,
 }

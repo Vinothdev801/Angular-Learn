@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Todo } from '../type/Todo';
 
 @Pipe({
-  name: 'filterTodos'
+  name: 'filterTodos', standalone: true,
 })
 export class FilterTodosPipe implements PipeTransform {
 
@@ -10,7 +10,7 @@ export class FilterTodosPipe implements PipeTransform {
     if(!search){
       return value;
     }
-    
+
     const text = search.toLowerCase();
 
     return value.filter(todo => {

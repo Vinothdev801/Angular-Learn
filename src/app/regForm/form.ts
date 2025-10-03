@@ -25,15 +25,20 @@ export class Form {
   // Sign Up form Reference
   @ViewChild('regForm') formRef!: NgForm;
 
+  // restoring old data from local storage based on users choice.
   ngAfterViewInit(){
     setTimeout(() => {
       try {
         const dataLength = localStorage.getItem('formData')?.length ?? 0;
-        const formData = JSON.parse(localStorage.getItem('formData') || '');
-        const savedTime = formData[0]?.savedTime ?? '';
+
         if(dataLength > 0){
+          const formData = JSON.parse(localStorage.getItem('formData') || '');
+          const savedTime = formData[0]?.savedTime ?? '';
+
+          // get confirmatiom from user to restore formdata or not.
           if(confirm(`Want to restore your old data on: [ ${savedTime} ]`)){
             this.updateForm();
+            localStorage.removeItem('formData'); // after restoring data in form, removing formData from localstorage.
           }
         }
       }
@@ -42,10 +47,12 @@ export class Form {
 
   }
 
+  // verifying all inputs fields does it contains values or not.
   checkInputs(): boolean{
    return !(this.name === '' && this.email === '' && this.address === '' && this.city === '' && this.state === '' && this.country === '' && this.password === '' && this.zip === '');
   }
 
+  // checking the form for touched or manipulated
   checkChanges(): boolean{
 
     if(this.formRef?.dirty && this.formRef?.touched && this.checkInputs()){
@@ -58,6 +65,7 @@ export class Form {
 
   }
 
+  // get user confirmation to restore old data of the form
   notify(){
     if(confirm('click ok to save the form')){
       this.storeFormData('formData');
@@ -69,6 +77,7 @@ export class Form {
     }
   }
 
+  // reseting the registeration form
   resetForm(){
     this.name = '';
     this.email = '';
@@ -81,6 +90,7 @@ export class Form {
     this.savedTime = '';
   }
 
+  // storing unfinished form data in local storage
   storeFormData(storageName: string){
     const date = new Date();
     this.savedTime = date.toDateString();
@@ -99,6 +109,7 @@ export class Form {
     localStorage.setItem(`${storageName}`, JSON.stringify(formData));
   }
 
+  // update the old form data from local storage.
   updateForm(){
     const formData = JSON.parse(localStorage.getItem('formData') || '[]');
 
@@ -113,8 +124,8 @@ export class Form {
     }
   }
 
+  // handle form submit.
   onSubmit(){
-
     if(this.formRef.valid){
       this.storeFormData('users');
       alert('Form Submitted successfully.');

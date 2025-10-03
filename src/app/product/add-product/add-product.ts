@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from './../../services/product-service';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from '../../navbar/navbar.component';
 
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NavbarComponent],
   templateUrl: './add-product.html',
   styleUrl: './add-product.css'
 })
@@ -22,8 +23,8 @@ export class AddProduct {
   addProduct(){
     const product =
       {
-        name: this.prodName,
-        imageurl: this.prodImage,
+        title: this.prodName,
+        image: this.prodImage,
         price: this.prodPrice,
       }
 

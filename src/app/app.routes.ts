@@ -13,8 +13,8 @@ import { ContactComponent } from './contact/contact.component';
 export const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'contact', component: ContactComponent, canActivate: [authGuard] },
-  { path: 'about', component: AboutComponent, canActivate: [authGuard] },
+ // { path: 'contact', component: ContactComponent, canActivate: [authGuard] },
+ // { path: 'about', component: AboutComponent, canActivate: [authGuard] },
   { path: 'product', component: ProductComponent, canActivate: [authGuard] },
   { path: 'form', component: Form, canDeactivate: [unsavedChangesGuard] },
   { path: 'profile', component: ProfileForm, canActivate: [authGuard] },

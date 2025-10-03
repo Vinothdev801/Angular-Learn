@@ -9,9 +9,9 @@
   <p>Loading....</p>
 }
 @else {
-  <form>
+  <form class="p-3">
     <label for="search">Filter Todos</label>
-    <input type="text" name="search" [(ngModel)]="searchTodo" id="search">
+    <input type="text" class="form-control w-25 mt-1" name="search" [(ngModel)]="searchTodo" id="search">
   </form>
 }
 <div class="grid text-center">

@@ -1,13 +1,34 @@
-<div class="products">
-  @for (product of products; track product.id){
+<!-- Newly added products -->
+ <h2>New Arrivals</h2>
+ <div class="products">
+  <p *ngIf="!products.length">Loading ...</p>
+  @for (product of products; track $index){
     <div class="card-container">
       <div class="card-content">
         <img [src]="product.image" [alt]="product.title" draggable="false" oncontextmenu="return false;">
         <div class="description">
           <p>{{product.title | titlecase}}</p>
           <p>{{product.price | currency}}</p>
-          <p>{{product.category}}</p>
-          <p>Rating: {{product.rating.rate}} Reviews: {{product.rating.count}}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+<br>
+
+<h2>From Apis</h2>
+<div class="products">
+  <p *ngIf="!Apiproducts.length">Loading ...</p>
+  @for (product of Apiproducts; track product.id){
+    <div class="card-container">
+      <div class="card-content">
+        <img [src]="product.image" [alt]="product.title" draggable="false" oncontextmenu="return false;">
+        <div class="description">
+          <p>{{product.title | titlecase}}</p>
+          <p>{{product.price | currency}}</p>
+          <!-- <p>{{product.category}}</p>
+          <p>Rating: {{product.rating.rate}} Reviews: {{product.rating.count}}</p> -->
         </div>
       </div>
     </div>

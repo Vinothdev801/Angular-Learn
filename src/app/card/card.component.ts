@@ -1,9 +1,10 @@
+import { LocalProductsService } from './../services/productApiService';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 
 import { ProductApi } from '../services/productApiService';
-import { Product } from '../product/Product.interface';
+import { ApiProduct, Product } from '../product/Product.interface';
 
 @Component({
   selector: 'app-card',
@@ -13,8 +14,14 @@ import { Product } from '../product/Product.interface';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  products: Product[] = [];
-  constructor(productApi: ProductApi) {
-    productApi.getAllProducts().subscribe((products) => (this.products = products));
+  Apiproducts: ApiProduct[] = []; // products from fake api
+  products: Product[] = []; // products from local storage.
+
+  constructor(productApi: ProductApi, localproducts: LocalProductsService) {
+    productApi.getAllProducts().subscribe((products) => (this.Apiproducts = products)); // products from api
+
+    // products from localstorage.
+    this.products = localproducts.getAllProducts();
+    console.log(this.products);
   }
 }
